@@ -1,17 +1,18 @@
+import poster from "../../../../images/posterFightClub.webp";
+
 function PanelSearch({ query }) {
-  // depois você troca pelos dados reais do TMDB
   const movie = {
     title: "Fight Club",
     type: "Filme",
     genres: "Drama · Thriller",
     overview:
-      "It's the end of the century at a corner of the city in a building riddled with crime - Everyone in the building has turned into zombies. After Jenny's boyfriend is killed in a zombie attack, she faces the challenge of surviving in the face of adversity. In order to stay alive, she struggles with Andy to flee danger.",
+      "It's the end of the century at a corner of the city...",
     runtime: "139 min",
     language: "Inglês",
     country: "EUA",
     year: "1999",
     rating: "8.4",
-    posterUrl: "https://image.tmdb.org/t/p/w500/SEU_POSTER.jpg",
+    posterUrl: poster,
   };
 
   if (!query) return <div>Digite um filme e pesquise.</div>;

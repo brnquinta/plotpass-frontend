@@ -1,6 +1,11 @@
+import { useState } from "react"; // ADICIONADO
 import searchIcon from "../../images/pesquisarIcon.svg";
+
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+
+import Popup from "./components/popup/Popup"; // ADICIONADO
+import SendRecommendation from "./components/popup/SendRecommendation/SendRecommendation";
 
 function Main({
   children,
@@ -11,6 +16,9 @@ function Main({
   onChangeView,
   onRecommend,
 }) {
+
+  const [isRecommendationOpen, setIsRecommendationOpen] = useState(false); // ADICIONADO
+
   return (
     <>
       <Header />
@@ -50,13 +58,25 @@ function Main({
 
           {activeView === "search" && (
             <div className="main-content__actions">
-              <button className="recommend-button" onClick={onRecommend}>
+              <button
+                className="recommend-button"
+                onClick={() => setIsRecommendationOpen(true)} // MODIFICADO
+              >
                 Recomendar
               </button>
             </div>
           )}
         </main>
       </div>
+
+      {isRecommendationOpen && ( // ADICIONADO
+        <Popup
+          title="Indique esse filme"
+          onClose={() => setIsRecommendationOpen(false)} // ADICIONADO
+        >
+          <SendRecommendation />
+        </Popup>
+      )}
     </>
   );
 }

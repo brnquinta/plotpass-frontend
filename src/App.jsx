@@ -1,14 +1,15 @@
 import { useState } from "react";
 import Main from "./components/main/Main";
-
-// pages/panels (exemplos)
 import PanelSearch from "./components/main/components/panels/PanelSearch";
-
 
 function App() {
   const [activeView, setActiveView] = useState("search");
   const [search, setSearch] = useState("");
-const [query, setQuery] = useState("fight club");// query “confirmada” ao apertar buscar
+  const [query, setQuery] = useState("fight club");
+  const [popup, setPopup] = useState(null);
+
+  const handleOpenPopup = (popupData) => setPopup(popupData);
+  const handleClosePopup = () => setPopup(null);
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
@@ -17,13 +18,12 @@ const [query, setQuery] = useState("fight club");// query “confirmada” ao ap
   };
 
   const handleRecommend = () => {
-    console.log("Recomendar item (filme/série)");
+    handleClosePopup();
   };
 
   const renderPanel = () => {
     switch (activeView) {
       case "search":
-        return <PanelSearch query={query} />;
       default:
         return <PanelSearch query={query} />;
     }
@@ -37,6 +37,9 @@ const [query, setQuery] = useState("fight club");// query “confirmada” ao ap
       onSubmitSearch={handleSubmitSearch}
       onChangeView={setActiveView}
       onRecommend={handleRecommend}
+      onOpenPopup={handleOpenPopup}
+      onClosePopup={handleClosePopup}
+      popup={popup}
     >
       {renderPanel()}
     </Main>
