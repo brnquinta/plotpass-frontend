@@ -1,36 +1,25 @@
-import { useState } from "react";
-// import Panel from "../components/Panel"; 
 import searchIcon from "../../images/pesquisarIcon.svg";
 import Footer from "../footer/Footer";
 
-
-function MainLayout({ children }) {
-  const [search, setSearch] = useState("");
-
-  // controla qual "aba" está ativa (sem Router, por enquanto)
-  const [activeView, setActiveView] = useState("search"); // "search" | "indications" | "recommended" | "about"
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Buscar:", search);
-    setActiveView("search"); // ao buscar, garante que está em Pesquisar
-  };
-
-  const handleRecommend = () => {
-    console.log("Recomendar item (filme/série)");
-    // no futuro: abrir modal / navegar / setar estado etc.
-  };
-
+function Main({
+  children,
+  activeView,
+  search,
+  onSearchChange,
+  onSubmitSearch,
+  onChangeView,
+  onRecommend,
+}) {
   return (
     <div className="layout">
       <aside className="sidebar">
         <nav className="sidebar__menu">
-          <form className="sidebar__search-form" onSubmit={handleSearch}>
+          <form className="sidebar__search-form" onSubmit={onSubmitSearch}>
             <input
               type="text"
               placeholder="Pesquisar"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => onSearchChange(e.target.value)}
               className="sidebar__search"
             />
             <button type="submit" className="sidebar__search-button">
@@ -38,28 +27,26 @@ function MainLayout({ children }) {
             </button>
           </form>
 
-          <button type="button" onClick={() => setActiveView("indications")}>
+          <button type="button" onClick={() => onChangeView("indications")}>
             Indicações
           </button>
-          <button type="button" onClick={() => setActiveView("recommended")}>
+          <button type="button" onClick={() => onChangeView("recommended")}>
             Indicados
           </button>
-          <button type="button" onClick={() => setActiveView("about")}>
+          <button type="button" onClick={() => onChangeView("about")}>
             Sobre
           </button>
         </nav>
+
         <Footer />
       </aside>
-      
 
       <main className="main-content">
-        <div className="main-content__panel">
-        {children}
-        </div>
+        <div className="main-content__panel">{children}</div>
 
         {activeView === "search" && (
           <div className="main-content__actions">
-            <button className="recommend-button" onClick={handleRecommend}>
+            <button className="recommend-button" onClick={onRecommend}>
               Recomendar
             </button>
           </div>
@@ -69,4 +56,4 @@ function MainLayout({ children }) {
   );
 }
 
-export default MainLayout;
+export default Main;
