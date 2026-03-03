@@ -3,7 +3,7 @@ import Main from "./components/main/Main";
 import PanelSearch from "./components/main/components/panels/PanelSearch";
 import RecommendationsPanel from "./components/main/components/panels/RecommendationsPanel";
 import SentRecommendationsPanel from "./components/main/components/panels/SentRecommendationsPanel";
-
+import AboutPanel from  "./components/main/components/panels/AboutPanel";
 function App() {
   const [activeView, setActiveView] = useState("search");
   const [search, setSearch] = useState("");
@@ -30,6 +30,9 @@ const renderPanel = () => {
 
     case "sentRecommendations":
       return <SentRecommendationsPanel />;
+
+       case "about":
+      return <AboutPanel />;
 
     case "search":
     default:

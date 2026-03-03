@@ -89,7 +89,7 @@ function RecommendationsPanel() {
 
   return (
     <section className="recommendations-panel">
-      <h2 className="recommendations-title">Indicados:</h2>
+      <h2 className="recommendations-title">Recebidos:</h2>
 
       <div className="recommendations-list">
         {visibleRecommendations.map((rec) => (
