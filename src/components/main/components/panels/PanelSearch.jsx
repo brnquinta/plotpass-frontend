@@ -5,7 +5,7 @@ function PanelSearch({ query }) {
     type: "Filme",
     genres: "Drama · Thriller",
     overview:
-      "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression...",
+      "It's the end of the century at a corner of the city in a building riddled with crime - Everyone in the building has turned into zombies. After Jenny's boyfriend is killed in a zombie attack, she faces the challenge of surviving in the face of adversity. In order to stay alive, she struggles with Andy to flee danger.",
     runtime: "139 min",
     language: "Inglês",
     country: "EUA",

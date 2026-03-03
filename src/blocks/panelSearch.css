@@ -1,6 +1,7 @@
-/* ===== PanelSearch (grid do print) ===== */
 
-.panel-search {
+.panel-search,
+.panel-search__card,
+.panel-search__grid {
   width: 100%;
   height: 100%;
 }
