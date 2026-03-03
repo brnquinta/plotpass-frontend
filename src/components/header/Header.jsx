@@ -1,4 +1,4 @@
-import logoBlue from "../../images/logoWhite.svg";
+import logoBlue from "../../images/logoBlue.svg";
 import profileIcon from "../../images/profileIcon.png";
 
 function Header() {

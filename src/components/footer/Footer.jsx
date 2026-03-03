@@ -1,9 +1,7 @@
-function Footer() {
+export default function Footer() {
   return (
-    <footer>
-      <p>© 2026</p>
+    <footer className="footer">
+      © {new Date().getFullYear()} Plotpass
     </footer>
   );
 }
-
-export default Footer;
