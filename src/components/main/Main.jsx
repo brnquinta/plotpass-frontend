@@ -1,10 +1,10 @@
-import { useState } from "react"; // ADICIONADO
+import { useState } from "react"; 
 import searchIcon from "../../images/pesquisarIcon.svg";
 
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
-import Popup from "./components/popup/Popup"; // ADICIONADO
+import Popup from "./components/popup/Popup"; 
 import SendRecommendation from "./components/popup/SendRecommendation/SendRecommendation";
 
 function Main({
@@ -17,7 +17,7 @@ function Main({
   onRecommend,
 }) {
 
-  const [isRecommendationOpen, setIsRecommendationOpen] = useState(false); // ADICIONADO
+  const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
 
   return (
     <>
@@ -39,11 +39,11 @@ function Main({
               </button>
             </form>
 
-            <button type="button" onClick={() => onChangeView("indications")}>
-              Indicações
+            <button type="button" onClick={() => onChangeView("sentRecommendations")}>
+              Recomendei
             </button>
             <button type="button" onClick={() => onChangeView("recommended")}>
-              Indicados
+              Recebidos
             </button>
             <button type="button" onClick={() => onChangeView("about")}>
               Sobre
@@ -60,7 +60,7 @@ function Main({
             <div className="main-content__actions">
               <button
                 className="recommend-button"
-                onClick={() => setIsRecommendationOpen(true)} // MODIFICADO
+                onClick={() => setIsRecommendationOpen(true)} 
               >
                 Recomendar
               </button>
@@ -69,10 +69,10 @@ function Main({
         </main>
       </div>
 
-      {isRecommendationOpen && ( // ADICIONADO
+      {isRecommendationOpen && ( 
         <Popup
           title="Indique esse filme"
-          onClose={() => setIsRecommendationOpen(false)} // ADICIONADO
+          onClose={() => setIsRecommendationOpen(false)} 
         >
           <SendRecommendation />
         </Popup>

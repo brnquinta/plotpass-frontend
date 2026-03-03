@@ -4,3 +4,5 @@
 @import url("./blocks/panelSearch.css");
 @import url("./blocks/popup.css");
 @import url("./blocks/sendRecomendation.css");
+@import url("./blocks/recommendationsPanel.css");
+@Import url("./blocks/sentRecomendationPanel.css");

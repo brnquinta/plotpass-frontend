@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Main from "./components/main/Main";
 import PanelSearch from "./components/main/components/panels/PanelSearch";
+import RecommendationsPanel from "./components/main/components/panels/RecommendationsPanel";
+import SentRecommendationsPanel from "./components/main/components/panels/SentRecommendationsPanel";
 
 function App() {
   const [activeView, setActiveView] = useState("search");
@@ -21,13 +23,19 @@ function App() {
     handleClosePopup();
   };
 
-  const renderPanel = () => {
-    switch (activeView) {
-      case "search":
-      default:
-        return <PanelSearch query={query} />;
-    }
-  };
+const renderPanel = () => {
+  switch (activeView) {
+    case "recommended":
+      return <RecommendationsPanel />;
+
+    case "sentRecommendations":
+      return <SentRecommendationsPanel />;
+
+    case "search":
+    default:
+      return <PanelSearch query={query} />;
+  }
+};
 
   return (
     <Main
