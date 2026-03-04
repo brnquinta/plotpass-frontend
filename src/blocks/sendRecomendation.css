@@ -44,17 +44,14 @@
 }
 
 .form__button-submit {
-  margin-top: 6px;
-  height: 40px;
+  height: 44px;
+  margin-top: 10px;
   border: none;
   border-radius: 8px;
-  background-color: #4c6484;
+  background-color: #314a6d;
   color: #fff;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .form__button-submit:hover {
