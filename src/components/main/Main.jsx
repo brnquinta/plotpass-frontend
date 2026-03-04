@@ -1,24 +1,18 @@
-import { useState } from "react"; 
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import searchIcon from "../../images/pesquisarIcon.svg";
 
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
-import Popup from "./components/popup/Popup"; 
+import Popup from "./components/popup/Popup";
 import SendRecommendation from "./components/popup/SendRecommendation/SendRecommendation";
 
-function Main({
-  children,
-  activeView,
-  search,
-  onSearchChange,
-  onSubmitSearch,
-  onChangeView,
-  onRecommend,
-}) {
-
+function Main({ children, search, onSearchChange, onSubmitSearch }) {
   const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
 
+  const location = useLocation(); 
+  const isSearchRoute = location.pathname === "/"; 
   return (
     <>
       <Header />
@@ -39,15 +33,18 @@ function Main({
               </button>
             </form>
 
-            <button type="button" onClick={() => onChangeView("sentRecommendations")}>
+            {/* ALTERADO: Invés de usar o caseSwitch alterei para navegate*/}
+            <NavLink to="/sent" className={({ isActive }) => (isActive ? "is-active" : "")}>
               Recomendei
-            </button>
-            <button type="button" onClick={() => onChangeView("recommended")}>
+            </NavLink>
+
+            <NavLink to="/recommended" className={({ isActive }) => (isActive ? "is-active" : "")}>
               Recebidos
-            </button>
-            <button type="button" onClick={() => onChangeView("about")}>
+            </NavLink>
+
+            <NavLink to="/about" className={({ isActive }) => (isActive ? "is-active" : "")}>
               Sobre
-            </button>
+            </NavLink>
           </nav>
 
           <Footer />
@@ -56,11 +53,12 @@ function Main({
         <main className="main-content">
           <div className="main-content__panel">{children}</div>
 
-          {activeView === "search" && (
+          {/* regra baseada na rota atual */}
+          {isSearchRoute && (
             <div className="main-content__actions">
               <button
                 className="recommend-button"
-                onClick={() => setIsRecommendationOpen(true)} 
+                onClick={() => setIsRecommendationOpen(true)}
               >
                 Recomendar
               </button>
@@ -69,11 +67,8 @@ function Main({
         </main>
       </div>
 
-      {isRecommendationOpen && ( 
-        <Popup
-          title="Indique esse filme"
-          onClose={() => setIsRecommendationOpen(false)} 
-        >
+      {isRecommendationOpen && (
+        <Popup title="Indique esse filme" onClose={() => setIsRecommendationOpen(false)}>
           <SendRecommendation />
         </Popup>
       )}

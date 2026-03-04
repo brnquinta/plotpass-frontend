@@ -1,58 +1,37 @@
 import { useState } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Main from "./components/main/Main";
 import PanelSearch from "./components/main/components/panels/PanelSearch";
 import RecommendationsPanel from "./components/main/components/panels/RecommendationsPanel";
 import SentRecommendationsPanel from "./components/main/components/panels/SentRecommendationsPanel";
-import AboutPanel from  "./components/main/components/panels/AboutPanel";
+import AboutPanel from "./components/main/components/panels/AboutPanel";
+
 function App() {
-  const [activeView, setActiveView] = useState("search");
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("fight club");
-  const [popup, setPopup] = useState(null);
 
-  const handleOpenPopup = (popupData) => setPopup(popupData);
-  const handleClosePopup = () => setPopup(null);
+  const navigate = useNavigate(); 
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
     setQuery(search.trim());
-    setActiveView("search");
+    navigate("/");
   };
-
-  const handleRecommend = () => {
-    handleClosePopup();
-  };
-
-const renderPanel = () => {
-  switch (activeView) {
-    case "recommended":
-      return <RecommendationsPanel />;
-
-    case "sentRecommendations":
-      return <SentRecommendationsPanel />;
-
-       case "about":
-      return <AboutPanel />;
-
-    case "search":
-    default:
-      return <PanelSearch query={query} />;
-  }
-};
 
   return (
     <Main
-      activeView={activeView}
       search={search}
       onSearchChange={setSearch}
       onSubmitSearch={handleSubmitSearch}
-      onChangeView={setActiveView}
-      onRecommend={handleRecommend}
-      onOpenPopup={handleOpenPopup}
-      onClosePopup={handleClosePopup}
-      popup={popup}
     >
-      {renderPanel()}
+      {/* renderização do painel agora é por rotas */}
+      <Routes>
+        <Route path="/" element={<PanelSearch query={query} />} />
+        <Route path="/recommended" element={<RecommendationsPanel />} />
+        <Route path="/sent" element={<SentRecommendationsPanel />} />
+        <Route path="/about" element={<AboutPanel />} />
+        <Route path="*" element={<Navigate to="/" replace />} /> 
+      </Routes>
     </Main>
   );
 }

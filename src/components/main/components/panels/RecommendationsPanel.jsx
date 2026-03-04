@@ -67,7 +67,7 @@ function RecommendationsPanel() {
     },
   ]);
 
-  // ✅ Feature: mostrar 5 por vez
+  // Feature: mostrar 5 por vez
   const PAGE_SIZE = 5;
   const [page, setPage] = useState(1);
 

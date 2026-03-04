@@ -1,0 +1,189 @@
+/* SentRecommendationsPanel */
+.sent-recommendations-panel {
+  width: 100%;
+  background: #f3f5f7;
+  padding: 18px 18px 22px;
+  border-radius: 14px;
+}
+
+.sent-recommendations-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2d3a4a;
+}
+
+/* list container */
+.sent-recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sent-recommendations-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+.sent-recommendation-card {
+  display: grid;
+  grid-template-columns: 58px 1fr 190px;
+  align-items: center;
+  gap: 14px;
+
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.05);
+}
+
+/* avatar */
+.sent-recommendation-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sent-avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1f2a37;
+  position: relative;
+}
+
+/* simple "user" icon look */
+.sent-avatar-circle::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #1f2a37;
+  background: transparent;
+}
+
+.sent-avatar-circle::after {
+  content: "";
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 14px;
+  border: 2px solid #1f2a37;
+  border-top: 0;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  background: transparent;
+}
+
+.sent-recommendation-info {
+  min-width: 0;
+}
+
+.sent-recommendation-user {
+  margin: 0;
+  font-size: 12px;
+  color: #111827;
+}
+
+.sent-recommendation-user strong {
+  font-weight: 700;
+}
+
+.sent-recommendation-reason {
+  margin: 6px 0 0;
+  font-size: 11px;
+  line-height: 1.25;
+  color: #98a2b3;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sent-recommendation-reason strong {
+  color: #667085;
+  font-weight: 700;
+}
+
+.sent-recommendation-movie {
+  justify-self: end;
+  text-align: right;
+}
+
+.sent-recommendation-title {
+  margin: 0;
+  font-size: 12px;
+  color: #344054;
+}
+
+.sent-recommendation-title strong {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 800;
+  margin-left: 4px;
+}
+
+.sent-recommendation-rating {
+  margin: 6px 0 10px;
+  font-size: 12px;
+  color: #98a2b3;
+}
+
+.sent-recommendation-rating::first-letter {
+  margin-right: 6px;
+}
+
+/* Status button */
+.sent-status-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  min-width: 110px;
+  box-shadow: 0 2px 0 rgba(16, 24, 40, 0.15);
+  transition: transform 0.08s ease, filter 0.15s ease;
+}
+
+.sent-status-btn:active {
+  transform: translateY(1px);
+}
+
+.sent-status-btn.pending {
+  background: #2f4a78;
+}
+
+.sent-status-btn.watched {
+  background: #39d353;
+}
+
+.sent-status-btn:hover {
+  filter: brightness(0.95);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .sent-recommendation-card {
+    grid-template-columns: 58px 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 10px;
+  }
+
+  .sent-recommendation-movie {
+    grid-column: 2 / 3;
+    justify-self: start;
+    text-align: left;
+  }
+}
