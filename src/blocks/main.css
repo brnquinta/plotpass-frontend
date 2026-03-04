@@ -76,7 +76,9 @@
   display: block;
 }
 
-.sidebar__menu > button {
+.sidebar__menu > a {
+  display: block;
+  text-decoration: none;
   background: none;
   border: none;
   color: #fff;
@@ -88,8 +90,18 @@
   transition: background-color 0.2s ease;
 }
 
-.sidebar__menu > button:hover {
+.sidebar__menu > a:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__menu > a.is-active {
+  background-color: rgba(255, 255, 255, 0.18);
+  font-weight: 600;
+}
+
+.sidebar__menu > a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
 }
 
 .sidebar__footer {
@@ -131,16 +143,16 @@
   display: flex;
   flex-direction: column;
 }
+
 .main-content__panel {
   background-color: white;
   box-shadow: 0px 3.2px 9.6px 0px rgba(0, 0, 0, 0.15);
   width: 100%;
   border-radius: 8px;
-
   flex: 1;
   display: flex;
   min-height: 0;
-
-  margin: 0;      
-  padding: 0;      
-  height: auto;   }
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
