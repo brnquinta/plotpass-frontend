@@ -25,6 +25,9 @@ function Header() {
           </button>
 
           <ul className="header__profile-menu">
+
+            <li className="header__user-name">Name</li>
+
             <li className="header__user-email">email@email.com</li>
 
             <li>

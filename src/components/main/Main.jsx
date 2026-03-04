@@ -20,6 +20,13 @@ function Main({ children, search, onSearchChange, onSubmitSearch }) {
       <div className="layout">
         <aside className="sidebar">
           <nav className="sidebar__menu">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) => (isActive ? "is-active" : "")}
+            >
+              Início
+            </NavLink>
             <form className="sidebar__search-form" onSubmit={onSubmitSearch}>
               <input
                 type="text"
@@ -34,6 +41,8 @@ function Main({ children, search, onSearchChange, onSubmitSearch }) {
             </form>
 
             {/* ALTERADO: Invés de usar o caseSwitch alterei para navegate*/}
+
+            
             <NavLink to="/sent" className={({ isActive }) => (isActive ? "is-active" : "")}>
               Recomendei
             </NavLink>
