@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import tmdbApi from "../../../../utils/TmdbApi";
+import posterIndisponivel from "../../../../images/posterIndisponivel.png";
 
 function SearchAutocomplete({ value, onChange, onSelect }) {
   const [results, setResults] = useState([]);
@@ -96,7 +97,7 @@ function SearchAutocomplete({ value, onChange, onSelect }) {
                   {img ? (
                     <img src={img} alt={m.title} />
                   ) : (
-                    <div className="autocomplete__poster-fallback" />
+                    <img src={posterIndisponivel} alt={m.title} />
                   )}
                 </div>
 

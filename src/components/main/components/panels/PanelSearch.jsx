@@ -1,9 +1,11 @@
+import posterIndisponivel from "../../../../images/posterIndisponivel.png";
+
 function PanelSearch({ movie }) {
   if (!movie) return <div>Digite um filme e pesquise.</div>;
 
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
-    : "";
+   : posterIndisponivel;
 
   const year = movie.release_date
     ? movie.release_date.slice(0, 4)
