@@ -9,10 +9,11 @@ import Popup from "./components/popup/Popup";
 import SendRecommendation from "./components/popup/SendRecommendation/SendRecommendation";
 
 import SearchAutocomplete from "./components/searchAutocomplete/SearchAutocomplete";
+import PanelSearch from "./components/panels/PanelSearch";
 
-
-function Main({ children, search, onSearchChange }) { // REMOVIDO onSubmitSearch
+function Main({ children, search, onSearchChange }) {
   const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const location = useLocation();
   const isSearchRoute = location.pathname === "/";
@@ -24,21 +25,19 @@ function Main({ children, search, onSearchChange }) { // REMOVIDO onSubmitSearch
       <div className="layout">
         <aside className="sidebar">
           <nav className="sidebar__menu">
+            <div className="sidebar__search-form">
+              <div className="sidebar__search-wrapper">
+                <SearchAutocomplete
+                  value={search}
+                  onChange={onSearchChange}
+                  onSelect={(movie) => setSelectedMovie(movie)}
+                />
+              </div>
 
-            {/* REMOVIDO onSubmitSearch e transformado em autocomplete */}
-        <div className="sidebar__search-form">
-  <div className="sidebar__search-wrapper">
-    <SearchAutocomplete
-      value={search}
-      onChange={onSearchChange}
-      onSelect={(movie) => console.log("Filme selecionado:", movie)}
-    />
-  </div>
-
-  <button type="button" className="sidebar__search-button">
-    <img src={searchIcon} alt="Ícone de pesquisa" />
-  </button>
-</div>
+              <button type="button" className="sidebar__search-button">
+                <img src={searchIcon} alt="Ícone de pesquisa" />
+              </button>
+            </div>
 
             <NavLink
               to="/"
@@ -74,7 +73,13 @@ function Main({ children, search, onSearchChange }) { // REMOVIDO onSubmitSearch
         </aside>
 
         <main className="main-content">
-          <div className="main-content__panel">{children}</div>
+          <div className="main-content__panel">
+            {isSearchRoute ? (
+              <PanelSearch movie={selectedMovie} />
+            ) : (
+              children
+            )}
+          </div>
 
           {isSearchRoute && (
             <div className="main-content__actions">
