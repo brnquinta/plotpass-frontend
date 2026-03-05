@@ -1,11 +1,11 @@
-.recommendations-panel {
+.recommendations {
   width: 100%;
   background: #f3f5f7;
   padding: 18px 18px 22px;
   border-radius: 14px;
 }
 
-.recommendations-title {
+.recommendations__title {
   margin: 0 0 12px;
   font-size: 14px;
   font-weight: 700;
@@ -13,20 +13,20 @@
 }
 
 /* list container */
-.recommendations-list {
+.recommendations__list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.recommendations-actions {
+.recommendations__actions {
   margin-top: 12px;
   display: flex;
   justify-content: center;
 }
 
 /* Card */
-.recommendation-card {
+.recommendations__card {
   display: grid;
   grid-template-columns: 58px 1fr 190px;
   align-items: center;
@@ -39,13 +39,13 @@
 }
 
 /* avatar */
-.recommendation-avatar {
+.recommendations__avatar {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.avatar-circle {
+.recommendations__avatar-circle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -55,7 +55,7 @@
 }
 
 /* simple "user" icon look */
-.avatar-circle::before {
+.recommendations__avatar-circle::before {
   content: "";
   position: absolute;
   top: 10px;
@@ -68,7 +68,7 @@
   background: transparent;
 }
 
-.avatar-circle::after {
+.recommendations__avatar-circle::after {
   content: "";
   position: absolute;
   bottom: 9px;
@@ -83,21 +83,21 @@
   background: transparent;
 }
 
-.recommendation-info {
+.recommendations__info {
   min-width: 0;
 }
 
-.recommendation-user {
+.recommendations__user {
   margin: 0;
   font-size: 12px;
   color: #111827;
 }
 
-.recommendation-user strong {
+.recommendations__user strong {
   font-weight: 700;
 }
 
-.recommendation-reason {
+.recommendations__reason {
   margin: 6px 0 0;
   font-size: 11px;
   line-height: 1.25;
@@ -109,42 +109,41 @@
   overflow: hidden;
 }
 
-.recommendation-reason strong {
+.recommendations__reason strong {
   color: #667085;
   font-weight: 700;
 }
 
-
-.recommendation-movie {
+.recommendations__movie {
   justify-self: end;
   text-align: right;
 }
 
-.recommendation-title {
+.recommendations__movie-title {
   margin: 0;
   font-size: 12px;
   color: #344054;
 }
 
-.recommendation-title strong {
+.recommendations__movie-title strong {
   color: #111827;
   font-size: 13px;
   font-weight: 800;
   margin-left: 4px;
 }
 
-.recommendation-rating {
+.recommendations__rating {
   margin: 6px 0 10px;
   font-size: 12px;
   color: #98a2b3;
 }
 
-.recommendation-rating::first-letter {
+.recommendations__rating::first-letter {
   margin-right: 6px;
 }
 
-/*  Status button */
-.status-btn {
+/* Status button */
+.recommendations__status-btn {
   border: 0;
   border-radius: 8px;
   padding: 7px 12px;
@@ -157,34 +156,34 @@
   transition: transform 0.08s ease, filter 0.15s ease;
 }
 
-.status-btn:active {
+.recommendations__status-btn:active {
   transform: translateY(1px);
 }
 
-.status-btn.pending {
-  background: #2f4a78; 
+.recommendations__status-btn--pending {
+  background: #2f4a78;
 }
 
-.status-btn.watched {
+.recommendations__status-btn--watched {
   background: #39d353;
 }
 
-
-.status-btn:hover {
+.recommendations__status-btn:hover {
   filter: brightness(0.95);
 }
 
 /* Responsive */
 @media (max-width: 700px) {
-  .recommendation-card {
+  .recommendations__card {
     grid-template-columns: 58px 1fr;
     grid-template-rows: auto auto;
     row-gap: 10px;
   }
 
-  .recommendation-movie {
+  .recommendations__movie {
     grid-column: 2 / 3;
     justify-self: start;
     text-align: left;
   }
 }
+body { outline: 6px solid lime !important; }

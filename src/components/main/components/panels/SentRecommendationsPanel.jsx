@@ -66,7 +66,6 @@ function SentRecommendationsPanel() {
     },
   ]);
 
-  // Feature: mostrar 5 por vez
   const PAGE_SIZE = 5;
   const [page, setPage] = useState(1);
 
@@ -74,8 +73,6 @@ function SentRecommendationsPanel() {
   const hasMore = visibleRecommendations.length < recommendations.length;
 
   const toggleStatus = (id) => {
-    // Mantive o toggle só pra testar UI.
-    // No futuro, você troca isso por um update vindo da API (userRecommendations).
     setRecommendations((prev) =>
       prev.map((rec) =>
         rec.id === id
@@ -86,39 +83,39 @@ function SentRecommendationsPanel() {
   };
 
   return (
-    <section className="recommendations-panel">
-      <h2 className="recommendations-title">Recomendei:</h2>
+    <section className="sent-recommendations">
+      <h2 className="sent-recommendations__title">Recomendei:</h2>
 
-      <div className="recommendations-list">
+      <div className="sent-recommendations__list">
         {visibleRecommendations.map((rec) => (
-          <div key={rec.id} className="recommendation-card">
-            <div className="recommendation-avatar">
-              <div className="avatar-circle"></div>
+          <div key={rec.id} className="sent-recommendations__card">
+            <div className="sent-recommendations__avatar">
+              <div className="sent-recommendations__avatar-circle"></div>
             </div>
 
-            <div className="recommendation-info">
-              <p className="recommendation-user">
+            <div className="sent-recommendations__info">
+              <p className="sent-recommendations__user">
                 <strong>Para:</strong> {rec.toUserEmail}
               </p>
 
-              <p className="recommendation-reason">
+              <p className="sent-recommendations__reason">
                 <strong>Razão:</strong> {rec.reason}
               </p>
             </div>
 
-            <div className="recommendation-movie">
-              <p className="recommendation-title">
+            <div className="sent-recommendations__movie">
+              <p className="sent-recommendations__movie-title">
                 título: <strong>{rec.title}</strong>
               </p>
 
-              <p className="recommendation-rating">⭐ {rec.rating}</p>
+              <p className="sent-recommendations__rating">⭐ {rec.rating}</p>
 
               <button
                 type="button"
                 className={
                   rec.status === "watched"
-                    ? "status-btn watched"
-                    : "status-btn pending"
+                    ? "sent-recommendations__status-btn sent-recommendations__status-btn--watched"
+                    : "sent-recommendations__status-btn sent-recommendations__status-btn--pending"
                 }
                 onClick={() => toggleStatus(rec.id)}
               >
@@ -130,10 +127,10 @@ function SentRecommendationsPanel() {
       </div>
 
       {hasMore && (
-        <div className="recommendations-actions">
+        <div className="sent-recommendations__actions">
           <button
             type="button"
-            className="status-btn pending"
+            className="sent-recommendations__status-btn sent-recommendations__status-btn--pending"
             onClick={() => setPage((p) => p + 1)}
           >
             Carregar mais

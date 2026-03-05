@@ -1,12 +1,11 @@
-/* SentRecommendationsPanel */
-.sent-recommendations-panel {
+.sent-recommendations {
   width: 100%;
   background: #f3f5f7;
   padding: 18px 18px 22px;
   border-radius: 14px;
 }
 
-.sent-recommendations-title {
+.sent-recommendations__title {
   margin: 0 0 12px;
   font-size: 14px;
   font-weight: 700;
@@ -14,20 +13,20 @@
 }
 
 /* list container */
-.sent-recommendations-list {
+.sent-recommendations__list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.sent-recommendations-actions {
+.sent-recommendations__actions {
   margin-top: 12px;
   display: flex;
   justify-content: center;
 }
 
 /* Card */
-.sent-recommendation-card {
+.sent-recommendations__card {
   display: grid;
   grid-template-columns: 58px 1fr 190px;
   align-items: center;
@@ -40,13 +39,13 @@
 }
 
 /* avatar */
-.sent-recommendation-avatar {
+.sent-recommendations__avatar {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sent-avatar-circle {
+.sent-recommendations__avatar-circle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -56,7 +55,7 @@
 }
 
 /* simple "user" icon look */
-.sent-avatar-circle::before {
+.sent-recommendations__avatar-circle::before {
   content: "";
   position: absolute;
   top: 10px;
@@ -69,7 +68,7 @@
   background: transparent;
 }
 
-.sent-avatar-circle::after {
+.sent-recommendations__avatar-circle::after {
   content: "";
   position: absolute;
   bottom: 9px;
@@ -84,21 +83,21 @@
   background: transparent;
 }
 
-.sent-recommendation-info {
+.sent-recommendations__info {
   min-width: 0;
 }
 
-.sent-recommendation-user {
+.sent-recommendations__user {
   margin: 0;
   font-size: 12px;
   color: #111827;
 }
 
-.sent-recommendation-user strong {
+.sent-recommendations__user strong {
   font-weight: 700;
 }
 
-.sent-recommendation-reason {
+.sent-recommendations__reason {
   margin: 6px 0 0;
   font-size: 11px;
   line-height: 1.25;
@@ -110,41 +109,41 @@
   overflow: hidden;
 }
 
-.sent-recommendation-reason strong {
+.sent-recommendations__reason strong {
   color: #667085;
   font-weight: 700;
 }
 
-.sent-recommendation-movie {
+.sent-recommendations__movie {
   justify-self: end;
   text-align: right;
 }
 
-.sent-recommendation-title {
+.sent-recommendations__movie-title {
   margin: 0;
   font-size: 12px;
   color: #344054;
 }
 
-.sent-recommendation-title strong {
+.sent-recommendations__movie-title strong {
   color: #111827;
   font-size: 13px;
   font-weight: 800;
   margin-left: 4px;
 }
 
-.sent-recommendation-rating {
+.sent-recommendations__rating {
   margin: 6px 0 10px;
   font-size: 12px;
   color: #98a2b3;
 }
 
-.sent-recommendation-rating::first-letter {
+.sent-recommendations__rating::first-letter {
   margin-right: 6px;
 }
 
 /* Status button */
-.sent-status-btn {
+.sent-recommendations__status-btn {
   border: 0;
   border-radius: 8px;
   padding: 7px 12px;
@@ -157,31 +156,31 @@
   transition: transform 0.08s ease, filter 0.15s ease;
 }
 
-.sent-status-btn:active {
+.sent-recommendations__status-btn:active {
   transform: translateY(1px);
 }
 
-.sent-status-btn.pending {
+.sent-recommendations__status-btn--pending {
   background: #2f4a78;
 }
 
-.sent-status-btn.watched {
+.sent-recommendations__status-btn--watched {
   background: #39d353;
 }
 
-.sent-status-btn:hover {
+.sent-recommendations__status-btn:hover {
   filter: brightness(0.95);
 }
 
 /* Responsive */
 @media (max-width: 700px) {
-  .sent-recommendation-card {
+  .sent-recommendations__card {
     grid-template-columns: 58px 1fr;
     grid-template-rows: auto auto;
     row-gap: 10px;
   }
 
-  .sent-recommendation-movie {
+  .sent-recommendations__movie {
     grid-column: 2 / 3;
     justify-self: start;
     text-align: left;

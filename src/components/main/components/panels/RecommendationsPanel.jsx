@@ -67,7 +67,6 @@ function RecommendationsPanel() {
     },
   ]);
 
-  // Feature: mostrar 5 por vez
   const PAGE_SIZE = 5;
   const [page, setPage] = useState(1);
 
@@ -88,39 +87,39 @@ function RecommendationsPanel() {
   };
 
   return (
-    <section className="recommendations-panel">
-      <h2 className="recommendations-title">Recebidos:</h2>
-
-      <div className="recommendations-list">
+    <section className="recommendations">
+      <h2 className="recommendations__title">Recebidos:</h2>
+      <h2 className="recommendations__title">RENDER NOVO ✅</h2>
+      <div className="recommendations__list">
         {visibleRecommendations.map((rec) => (
-          <div key={rec.id} className="recommendation-card">
-            <div className="recommendation-avatar">
-              <div className="avatar-circle"></div>
+          <div key={rec.id} className="recommendations__card">
+            <div className="recommendations__avatar">
+              <div className="recommendations__avatar-circle"></div>
             </div>
 
-            <div className="recommendation-info">
-              <p className="recommendation-user">
+            <div className="recommendations__info">
+              <p className="recommendations__user">
                 <strong>Quem indicou:</strong> {rec.userEmail}
               </p>
 
-              <p className="recommendation-reason">
+              <p className="recommendations__reason">
                 <strong>Razão:</strong> {rec.reason}
               </p>
             </div>
 
-            <div className="recommendation-movie">
-              <p className="recommendation-title">
+            <div className="recommendations__movie">
+              <p className="recommendations__movie-title">
                 título: <strong>{rec.title}</strong>
               </p>
 
-              <p className="recommendation-rating">⭐ {rec.rating}</p>
+              <p className="recommendations__rating">⭐ {rec.rating}</p>
 
               <button
                 type="button"
                 className={
                   rec.status === "watched"
-                    ? "status-btn watched"
-                    : "status-btn pending"
+                    ? "recommendations__status-btn recommendations__status-btn--watched"
+                    : "recommendations__status-btn recommendations__status-btn--pending"
                 }
                 onClick={() => toggleStatus(rec.id)}
               >
@@ -132,10 +131,10 @@ function RecommendationsPanel() {
       </div>
 
       {hasMore && (
-        <div className="recommendations-actions">
+        <div className="recommendations__actions">
           <button
             type="button"
-            className="status-btn pending"
+            className="recommendations__status-btn recommendations__status-btn--pending"
             onClick={() => setPage((p) => p + 1)}
           >
             Carregar mais
