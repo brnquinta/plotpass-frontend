@@ -1,16 +1,35 @@
-# React + Vite
+# PlotPass
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React que permite pesquisar filmes usando a API do TMDB e enviar recomendações.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* React
+* Vite
+* TMDB API
+* CSS (BEM)
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Buscar filmes
+* Autocomplete de busca
+* Visualização de filmes
+* Interface para recomendações
 
-## Expanding the ESLint configuration
+## Configuração do ambiente
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Crie um arquivo `.env` na raiz do projeto e adicione sua chave da API do TMDB:
+
+```
+VITE_TMDB_TOKEN=your_tmdb_api_token_here
+```
+
+Você pode obter sua chave em:
+https://www.themoviedb.org/settings/api
+
+## Rodar projeto
+
+```
+npm install
+npm run dev
+```

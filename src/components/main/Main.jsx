@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import searchIcon from "../../images/pesquisarIcon.svg";
+
 
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
@@ -14,7 +14,6 @@ import PanelSearch from "./components/panels/PanelSearch";
 function Main({ children, search, onSearchChange }) {
   const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
   const location = useLocation();
   const isSearchRoute = location.pathname === "/";
 
@@ -26,17 +25,16 @@ function Main({ children, search, onSearchChange }) {
         <aside className="sidebar">
           <nav className="sidebar__menu">
             <div className="sidebar__search-form">
-              <div className="sidebar__search-wrapper">
+  
                 <SearchAutocomplete
                   value={search}
                   onChange={onSearchChange}
                   onSelect={(movie) => setSelectedMovie(movie)}
+                  
                 />
-              </div>
+             
 
-              <button type="button" className="sidebar__search-button">
-                <img src={searchIcon} alt="Ícone de pesquisa" />
-              </button>
+        
             </div>
 
             <NavLink
