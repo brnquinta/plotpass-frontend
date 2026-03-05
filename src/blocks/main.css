@@ -1,3 +1,5 @@
+/* Main.css */
+
 .layout {
   display: flex;
   min-height: 100vh;
@@ -6,8 +8,8 @@
 }
 
 .sidebar {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 250px;
+  max-width: 250px;
   background-color: #314a6d;
   color: #fff;
   display: flex;
@@ -30,6 +32,19 @@
   gap: 8px;
   width: 100%;
   align-items: center;
+}
+
+/* garante que o autocomplete respeita o flex e não invade o botão */
+.autocomplete {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.autocomplete__input-wrap {
+  width: 100%;
+  min-width: 0;
+  display: flex;
 }
 
 .sidebar__search {
@@ -63,6 +78,8 @@
   cursor: pointer;
   padding: 0;
   transition: background-color 0.2s ease;
+  position: relative;
+  z-index: 3;
 }
 
 .sidebar__search-button:hover {
