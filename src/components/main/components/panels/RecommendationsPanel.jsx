@@ -89,7 +89,7 @@ function RecommendationsPanel() {
   return (
     <section className="recommendations">
       <h2 className="recommendations__title">Recebidos:</h2>
-      <h2 className="recommendations__title">RENDER NOVO ✅</h2>
+
       <div className="recommendations__list">
         {visibleRecommendations.map((rec) => (
           <div key={rec.id} className="recommendations__card">
