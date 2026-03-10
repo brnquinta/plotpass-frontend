@@ -1,6 +1,8 @@
 import posterIndisponivel from "../../../../images/posterIndisponivel.png";
 
 function PanelSearch({ movie }) {
+
+  console.log("MOVIE OBJECT:", movie);
   if (!movie) return <div>Digite um filme e pesquise.</div>;
 
   const posterUrl = movie.poster_path
